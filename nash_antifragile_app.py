@@ -79,6 +79,7 @@ m = st.number_input(t["criteri"], min_value=1, value=3)
 soglia = st.number_input(t["soglia"], min_value=0.0, value=50.0)
 premio_totale = st.number_input(t["premio"], min_value=0.0, value=100.0)
 
+
 # Parametri
 n = st.number_input("Numero di partecipanti", min_value=1, value=5)
 m = st.number_input("Numero di criteri", min_value=1, value=3)
