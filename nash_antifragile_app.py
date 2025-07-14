@@ -15,7 +15,7 @@ testi = {
         "normalizzazione": "✅ I pesi sono stati normalizzati automaticamente.",
         "idoneo_sì": "✅ Sì",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Esporta CSV",
+        "bottone_csv": "📥 Esporta XLSX",
         "tabella": {
             "nome": "Nome",
             "punteggio": "Punteggio",
@@ -36,7 +36,7 @@ testi = {
         "normalizzazione": "✅ Weights have been automatically normalized.",
         "idoneo_sì": "✅ Yes",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Export CSV",
+        "bottone_csv": "📥 Export XLSX",
         "tabella": {
             "nome": "Name",
             "punteggio": "Score",
@@ -58,7 +58,7 @@ testi = {
         "normalizzazione": "✅ Los pesos se han normalizado automáticamente.",
         "idoneo_sì": "✅ Sí",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Exportar CSV",
+        "bottone_csv": "📥 Exportar XLSX",
         "tabella": {
             "nome": "Nombre",
             "punteggio": "Puntuación",
@@ -74,9 +74,9 @@ t = testi[codice]           # Riferimento al blocco di testo tradotto
 
 # 📤 Nomi file localizzati per export CSV
 nomi_file = {
-    "🇮🇹": "risultati_nash.csv",
-    "🇺🇸": "nash_results.csv",
-    "🇪🇸": "resultados_nash.csv"
+    "🇮🇹": "risultati_nash.xlsx",
+    "🇺🇸": "nash_results.xlsx",
+    "🇪🇸": "resultados_nash.xlsx"
 }
 
 
