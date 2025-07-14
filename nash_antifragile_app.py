@@ -68,10 +68,16 @@ codice = lingua.split()[0]  # Estrae l'emoji come chiave
 t = testi[codice]           # Riferimento al blocco di testo tradotto
 
 
-st.set_page_config(page_title="Distribuzione Nash-Antifragile", layout="centered")
-st.title("💎 Distribuzione Meritocratica Nash-Antifragile")
+st.set_page_config(page_title=t["titolo"], layout="centered")
+st.title(f"💎 {t['titolo']}")
 
-st.markdown("Inserisci i dati dei partecipanti e parametri della distribuzione:")
+st.markdown(f"{t['punteggi']}")  # O inserisci una nuova chiave tipo "introduzione"
+
+# Parametri con etichette localizzate
+n = st.number_input(t["partecipanti"], min_value=1, value=5)
+m = st.number_input(t["criteri"], min_value=1, value=3)
+soglia = st.number_input(t["soglia"], min_value=0.0, value=50.0)
+premio_totale = st.number_input(t["premio"], min_value=0.0, value=100.0)
 
 # Parametri
 n = st.number_input("Numero di partecipanti", min_value=1, value=5)
