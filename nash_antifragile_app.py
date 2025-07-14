@@ -15,6 +15,7 @@ testi = {
         "normalizzazione": "✅ I pesi sono stati normalizzati automaticamente.",
         "idoneo_sì": "✅ Sì",
         "idoneo_no": "❌ No",
+        "bottone_csv": "📥 Exportar CSV",
         "tabella": {
             "nome": "Nome",
             "punteggio": "Punteggio",
@@ -37,12 +38,13 @@ testi = {
         "normalizzazione": "✅ Weights have been automatically normalized.",
         "idoneo_sì": "✅ Yes",
         "idoneo_no": "❌ No",
+        "bottone_csv": "📥 Export CSV",
         "tabella": {
             "nome": "Name",
             "punteggio": "Score",
             "idoneo": "Eligible",
             "premio": "Prize"
-            "bottone_csv": "📥 Export CSV"
+            
         }
     },
     "🇪🇸": {
@@ -58,12 +60,13 @@ testi = {
         "normalizzazione": "✅ Los pesos se han normalizado automáticamente.",
         "idoneo_sì": "✅ Sí",
         "idoneo_no": "❌ No",
+        "bottone_csv": "📥 Exportar CSV",
         "tabella": {
             "nome": "Nombre",
             "punteggio": "Puntuación",
             "idoneo": "Elegible",
             "premio": "Premio"
-            "bottone_csv": "📥 Exportar CSV"
+            
         }
     }
 }
