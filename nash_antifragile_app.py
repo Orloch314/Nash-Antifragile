@@ -1,5 +1,72 @@
 import streamlit as st
 import pandas as pd
+# 🗣️ Dizionario traduzioni completo
+testi = {
+    "🇮🇹": {
+        "titolo": "Distribuzione Meritocratica Nash-Antifragile",
+        "partecipanti": "Numero di partecipanti",
+        "criteri": "Numero di criteri di valutazione",
+        "soglia": "Soglia minima (s)",
+        "premio": "Montepremi totale (P)",
+        "pesi": "⚖️ Pesi dei criteri",
+        "punteggi": "Punteggi dei partecipanti",
+        "risultati": "📊 Distribuzione Premi",
+        "somma_pesi": "🔢 Somma totale dei pesi inseriti",
+        "normalizzazione": "✅ I pesi sono stati normalizzati automaticamente.",
+        "idoneo_sì": "✅ Sì",
+        "idoneo_no": "❌ No",
+        "tabella": {
+            "nome": "Nome",
+            "punteggio": "Punteggio",
+            "idoneo": "Idoneo",
+            "premio": "Premio"
+        }
+    },
+    "🇺🇸": {
+        "titolo": "Nash-Antifragile Meritocratic Distribution",
+        "partecipanti": "Number of participants",
+        "criteri": "Number of evaluation criteria",
+        "soglia": "Minimum threshold (s)",
+        "premio": "Total prize pool (P)",
+        "pesi": "⚖️ Criteria weights",
+        "punteggi": "Participants' scores",
+        "risultati": "📊 Prize Distribution",
+        "somma_pesi": "🔢 Total sum of weights entered",
+        "normalizzazione": "✅ Weights have been automatically normalized.",
+        "idoneo_sì": "✅ Yes",
+        "idoneo_no": "❌ No",
+        "tabella": {
+            "nome": "Name",
+            "punteggio": "Score",
+            "idoneo": "Eligible",
+            "premio": "Prize"
+        }
+    },
+    "🇪🇸": {
+        "titolo": "Distribución Meritocrática Nash-Antifrágil",
+        "partecipanti": "Número de participantes",
+        "criteri": "Número de criterios de evaluación",
+        "soglia": "Umbral mínimo (s)",
+        "premio": "Monto total del premio (P)",
+        "pesi": "⚖️ Pesos de los criterios",
+        "punteggi": "Puntajes de los participantes",
+        "risultati": "📊 Distribución de Premios",
+        "somma_pesi": "🔢 Suma total de los pesos ingresados",
+        "normalizzazione": "✅ Los pesos se han normalizado automáticamente.",
+        "idoneo_sì": "✅ Sí",
+        "idoneo_no": "❌ No",
+        "tabella": {
+            "nome": "Nombre",
+            "punteggio": "Puntuación",
+            "idoneo": "Elegible",
+            "premio": "Premio"
+        }
+    }
+}
+lingua = st.selectbox("🌍 Lingua / Language / Idioma", ["🇮🇹 Italiano", "🇺🇸 English", "🇪🇸 Español"])
+codice = lingua.split()[0]  # Estrae l'emoji come chiave
+t = testi[codice]           # Riferimento al blocco di testo tradotto
+
 
 st.set_page_config(page_title="Distribuzione Nash-Antifragile", layout="centered")
 st.title("💎 Distribuzione Meritocratica Nash-Antifragile")
