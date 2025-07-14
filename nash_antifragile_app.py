@@ -15,15 +15,13 @@ testi = {
         "normalizzazione": "✅ I pesi sono stati normalizzati automaticamente.",
         "idoneo_sì": "✅ Sì",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Exportar CSV",
+        "bottone_csv": "📥 Esporta CSV",
         "tabella": {
             "nome": "Nome",
             "punteggio": "Punteggio",
             "idoneo": "Idoneo",
             "premio": "Premio"
-            "bottone_csv": "📥 Esporta CSV"
-
-        }
+                }
     },
     "🇺🇸": {
         "titolo": "Nash-Antifragile Meritocratic Distribution",
