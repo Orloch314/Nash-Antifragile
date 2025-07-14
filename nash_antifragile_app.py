@@ -15,7 +15,7 @@ testi = {
         "normalizzazione": "✅ I pesi sono stati normalizzati automaticamente.",
         "idoneo_sì": "✅ Sì",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Esporta XLSX",
+        "bottone_xlsx": "📥 Esporta XLSX",
         "tabella": {
             "nome": "Nome",
             "punteggio": "Punteggio",
@@ -36,7 +36,7 @@ testi = {
         "normalizzazione": "✅ Weights have been automatically normalized.",
         "idoneo_sì": "✅ Yes",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Export XLSX",
+        "bottone_xlsx": "📥 Export XLSX",
         "tabella": {
             "nome": "Name",
             "punteggio": "Score",
@@ -58,7 +58,7 @@ testi = {
         "normalizzazione": "✅ Los pesos se han normalizado automáticamente.",
         "idoneo_sì": "✅ Sí",
         "idoneo_no": "❌ No",
-        "bottone_csv": "📥 Exportar XLSX",
+        "bottone_xlsx": "📥 Exportar XLSX",
         "tabella": {
             "nome": "Nombre",
             "punteggio": "Puntuación",
@@ -157,7 +157,7 @@ with pd.ExcelWriter(excel_buffer, engine='openpyxl') as writer:
     df.to_excel(writer, index=False, sheet_name="Distribuzione")
 
 # 🌍 Riferimenti localizzati
-etichetta = t["bottone_csv"]
+etichetta = t["bottone_xlsx"]
 file_name = nomi_file[codice].replace(".csv", ".xlsx")  # Cambia estensione
 
 # 🔲 Centra il pulsante
