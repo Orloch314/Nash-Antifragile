@@ -13,9 +13,21 @@ soglia = st.number_input("Soglia minima (s)", min_value=0.0, value=50.0)
 premio_totale = st.number_input("Montepremi (P)", min_value=0.0, value=100.0)
 
 st.subheader("⚖️ Pesi dei criteri")
-pesi = [st.slider(f"Criterio {k+1}", 0.0, 1.0, 1.0/m) for k in range(m)]
+
+# Slider per pesi individuali
+pesi = [st.slider(f"Criterio {k+1}", 0.0, 1.0, 1.0/m, key=f"peso_{k}") for k in range(m)]
+
+# Somma grezza prima della normalizzazione
 peso_tot = sum(pesi)
+
+# Mostra somma grezza all'utente
+st.markdown(f"🔢 Somma totale dei pesi inseriti: **{round(peso_tot, 3)}**")
+
+# Normalizzazione dei pesi
 pesi = [p / peso_tot for p in pesi]
+
+# Messaggio di conferma
+st.markdown("✅ I pesi sono stati normalizzati automaticamente per garantire coerenza nel calcolo dei punteggi.")
 
 # Inserimento punteggi
 dati = []
