@@ -52,12 +52,19 @@ somma_vi = sum(d["vi"] for d in idonei)
 risultati = []
 for d in dati:
     premio = (d["vi"] / somma_vi * premio_totale) if d in idonei and somma_vi > 0 else 0
-    risultati.append({
-        "Nome": d["nome"],
-        "Punteggio": round(d["vi"], 2),
-        "Idoneo": "✅" if d in idonei else "❌",
-        "Premio": round(premio, 2)
-    })
+    # 🗣️ Recupera dizionario lingua corrente
+t = testi[codice]                     # testo localizzato
+colonne = t["tabella"]                # intestazioni tradotte
+id_sì = t["idoneo_sì"]                # esempio: "✅ Sì"
+id_no = t["idoneo_no"]                # esempio: "❌ No"
+
+# 🔁 Costruzione del dizionario risultati
+risultati.append({
+    colonne["nome"]: d["nome"],
+    colonne["punteggio"]: round(d["vi"], 2),
+    colonne["idoneo"]: id_sì if d in idonei else id_no,
+    colonne["premio"]: round(premio, 2)
+})
 
 st.subheader("📊 Distribuzione Premi")
 df = pd.DataFrame(risultati)
