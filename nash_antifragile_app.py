@@ -88,7 +88,7 @@ st.markdown(f"{t['punteggi']}")  # O inserisci una nuova chiave tipo "introduzio
 # Parametri con etichette localizzate
 n = st.number_input(t["partecipanti"], min_value=1, value=5)
 m = st.number_input(t["criteri"], min_value=1, value=3)
-soglia = st.number_input(t["soglia"], min_value=0.0, value=5.0)
+soglia = st.number_input(t["soglia"], min_value=0.0, value=3.0)
 premio_totale = st.number_input(t["premio"], min_value=0.0, value=10000.0)
 
 # Recupera i testi localizzati per la lingua scelta
