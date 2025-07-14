@@ -151,21 +151,21 @@ st.dataframe(df)
 
 import io
 
-# Converti DataFrame in CSV
-csv_buffer = io.StringIO()
-df.to_csv(csv_buffer, index=False)
-csv_content = csv_buffer.getvalue()
+# 🔁 Conversione DataFrame in Excel
+excel_buffer = io.BytesIO()
+with pd.ExcelWriter(excel_buffer, engine='openpyxl') as writer:
+    df.to_excel(writer, index=False, sheet_name="Distribuzione")
 
 # 🌍 Riferimenti localizzati
 etichetta = t["bottone_csv"]
-file_name = nomi_file[codice]
+file_name = nomi_file[codice].replace(".csv", ".xlsx")  # Cambia estensione
 
 # 🔲 Centra il pulsante
-col1, col2, col3 = st.columns([1,2,1])
+col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.download_button(
         label=etichetta,
-        data=csv_content.encode("utf-8"),
+        data=excel_buffer.getvalue(),
         file_name=file_name,
-        mime="text/csv"
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
