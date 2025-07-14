@@ -115,24 +115,24 @@ for d in dati:
 idonei = [d for d in dati if d["vi"] > soglia]
 somma_vi = sum(d["vi"] for d in idonei)
 
-# 🔁 Costruzione del dizionario risultati
-risultati.append({
-    colonne["nome"]: d["nome"],
-    colonne["punteggio"]: round(d["vi"], 2),
-    colonne["idoneo"]: id_sì if d in idonei else id_no,
-    colonne["premio"]: round(premio, 2)
-})
+# 🗣️ Recupera dizionario lingua corrente (solo una volta)
+t = testi[codice]
+colonne = t["tabella"]
+id_sì = t["idoneo_sì"]
+id_no = t["idoneo_no"]
 
-# Calcolo premi
+# 🔁 Costruzione tabella premi
 risultati = []
 for d in dati:
     premio = (d["vi"] / somma_vi * premio_totale) if d in idonei and somma_vi > 0 else 0
-    # 🗣️ Recupera dizionario lingua corrente
-t = testi[codice]                     # testo localizzato
-colonne = t["tabella"]                # intestazioni tradotte
-id_sì = t["idoneo_sì"]                # esempio: "✅ Sì"
-id_no = t["idoneo_no"]                # esempio: "❌ No"
+    risultati.append({
+        colonne["nome"]: d["nome"],
+        colonne["punteggio"]: round(d["vi"], 2),
+        colonne["idoneo"]: id_sì if d in idonei else id_no,
+        colonne["premio"]: round(premio, 2)
+    })
 
-st.subheader("📊 risultati")
+# 🧾 Visualizzazione
+st.subheader(t["risultati"])
 df = pd.DataFrame(risultati)
 st.dataframe(df)
