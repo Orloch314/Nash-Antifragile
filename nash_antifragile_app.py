@@ -20,6 +20,8 @@ testi = {
             "punteggio": "Punteggio",
             "idoneo": "Idoneo",
             "premio": "Premio"
+            "bottone_csv": "📥 Esporta CSV"
+
         }
     },
     "🇺🇸": {
@@ -40,6 +42,7 @@ testi = {
             "punteggio": "Score",
             "idoneo": "Eligible",
             "premio": "Prize"
+            "bottone_csv": "📥 Export CSV"
         }
     },
     "🇪🇸": {
@@ -60,12 +63,20 @@ testi = {
             "punteggio": "Puntuación",
             "idoneo": "Elegible",
             "premio": "Premio"
+            "bottone_csv": "📥 Exportar CSV"
         }
     }
 }
 lingua = st.selectbox("🌍 Lingua / Language / Idioma", ["🇮🇹 Italiano", "🇺🇸 English", "🇪🇸 Español"])
 codice = lingua.split()[0]  # Estrae l'emoji come chiave
 t = testi[codice]           # Riferimento al blocco di testo tradotto
+
+# 📤 Nomi file localizzati per export CSV
+nomi_file = {
+    "🇮🇹": "risultati_nash.csv",
+    "🇺🇸": "nash_results.csv",
+    "🇪🇸": "resultados_nash.csv"
+}
 
 
 st.set_page_config(page_title=t["titolo"], layout="centered")
@@ -136,3 +147,24 @@ for d in dati:
 st.subheader(t["risultati"])
 df = pd.DataFrame(risultati)
 st.dataframe(df)
+
+import io
+
+# Converti DataFrame in CSV
+csv_buffer = io.StringIO()
+df.to_csv(csv_buffer, index=False)
+csv_content = csv_buffer.getvalue()
+
+# 🌍 Riferimenti localizzati
+etichetta = t["bottone_csv"]
+file_name = nomi_file[codice]
+
+# 🔲 Centra il pulsante
+col1, col2, col3 = st.columns([1,2,1])
+with col2:
+    st.download_button(
+        label=etichetta,
+        data=csv_content.encode("utf-8"),
+        file_name=file_name,
+        mime="text/csv"
+    )
